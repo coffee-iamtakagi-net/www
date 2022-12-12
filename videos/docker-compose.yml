@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: videos
+    image: ghcr.io/iamtakagi/images:latest
+    volumes:
+      - /mnt/storage1/Media/Videos/Public:/app/storage:rw
+      - /mnt/storage1/Media/Videos/Public/Thumbnail:/app/thumbnail:rw
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Tokyo
+      - LANG=ja_JP.UTF-8
+      - PORT=3002
+    restart: unless-always

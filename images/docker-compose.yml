@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: images
+    image: ghcr.io/iamtakagi/images:latest
+    volumes:
+      - /mnt/storage1/Media/Images/Public:/app/storage:rw
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Tokyo
+      - LANG=ja_JP.UTF-8
+      - PORT=3001
+    restart: always
