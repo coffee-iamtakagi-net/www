@@ -3,7 +3,7 @@ version: '3.8'
 services:
   app:
     container_name: videos
-    image: ghcr.io/iamtakagi/images:latest
+    image: ghcr.io/iamtakagi/videos:latest
     volumes:
       - /mnt/storage1/Media/Videos/Public:/app/storage:rw
       - /mnt/storage1/Media/Videos/Public/Thumbnail:/app/thumbnail:rw
