@@ -1,4 +1,4 @@
-# web
+# www
 
 ## LICENSE
 MIT License\
