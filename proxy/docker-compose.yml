@@ -2,31 +2,31 @@ version: '3.9'
 services:
 
   nginx:
-      container_name: nginx
-      image: nginx:1.23.0
-      build:
-        context: ./nginx
-        dockerfile: Dockerfile
-      ports:
-        - 8080:8080
-        - 443:443
-      volumes:
-        - ./nginx/public:/usr/share/nginx/html:ro
-        - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
-        - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-        - ./nginx/sites:/etc/nginx/sites
-      environment:
-        TZ: Asia/Tokyo
-      restart: unless-stopped
-      networks:
-        - internal
-        - images_default
-        - videos_default
+    container_name: nginx
+    image: nginx:1.23.0
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+      - 443:443
+    volumes:
+      - ./nginx/public:/usr/share/nginx/html:ro
+      - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/sites:/etc/nginx/sites
+    environment:
+      TZ: Asia/Tokyo
+    restart: always
+    networks:
+      - internal
+      - images_default
+      - videos_default
 
   cloudflared:
     image: cloudflare/cloudflared:latest
     user: root
-    restart: unless-stopped
+    restart: always
     command: tunnel --no-chunked-encoding run proxy01
     volumes:
       - '$HOME/.cloudflared:/root/.cloudflared'
