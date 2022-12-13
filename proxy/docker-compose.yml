@@ -27,7 +27,7 @@ services:
     image: cloudflare/cloudflared:latest
     user: root
     restart: always
-    command: tunnel --no-chunked-encoding run proxy01
+    command: tunnel --no-chunked-encoding --config www.yml run proxy01
     volumes:
       - '$HOME/.cloudflared:/root/.cloudflared'
     depends_on:
