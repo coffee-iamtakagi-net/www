@@ -8,8 +8,8 @@ upstream images {
 }
 
 server {
-  listen       8080;
-  listen  [::]:8080;
+  listen       80;
+  listen  [::]:80;
   server_name images.iamtakagi.net;
 
   keepalive_timeout    70;
