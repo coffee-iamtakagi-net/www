@@ -21,6 +21,7 @@ services:
       - videos_default
 
   cloudflared:
+    container_name: cloudflared
     image: cloudflare/cloudflared:latest
     user: root
     restart: always
