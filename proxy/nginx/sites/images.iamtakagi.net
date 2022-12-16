@@ -4,7 +4,7 @@ map $http_upgrade $connection_upgrade {
 }
 
 upstream images {
-  server images:3001 fail_timeout=0;
+  server images:80 fail_timeout=0;
 }
 
 server {

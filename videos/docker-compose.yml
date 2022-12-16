@@ -12,5 +12,5 @@ services:
     environment:
       - TZ=Asia/Tokyo
       - LANG=ja_JP.UTF-8
-      - PORT=3002
+      - PORT=80
     restart: always
